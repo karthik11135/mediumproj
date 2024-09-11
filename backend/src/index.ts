@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import blog from './routes/blogRoutes'
 import user from './routes/userRoutes'
+import { cors } from 'hono/cors'
 
 
 const app = new Hono<{
@@ -10,6 +11,7 @@ const app = new Hono<{
   }
 }>()    
 
+app.use(cors());
 app.route('/api/v1/user', user)
 app.route('/api/v1/blog', blog)
    

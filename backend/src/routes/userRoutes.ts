@@ -46,7 +46,7 @@ user.post("/signup", async (c) => {
 
     const jwt = await sign({ userId: user.id }, c.env.JWT_SECRET);
 
-    return c.json({ jwt });
+    return c.json({ jwt, name: user.name });
   } catch (err) {
     console.log(err);
     return c.text("gone");
@@ -59,7 +59,7 @@ user.post("/signin", async (c) => {
     email: body.email,
     password: body.password,
   };
-
+console.log(userDetails)
   const { success } = signinInput.safeParse(userDetails);
 
   if (!success) {
@@ -85,7 +85,7 @@ user.post("/signin", async (c) => {
 
     if (user.password === userDetails.password) {
       const jwt = await sign({ userId: user.id }, c.env.JWT_SECRET);
-      return c.json({ jwt });
+      return c.json({ jwt, name: user.name });
     }
     c.status(400);
     return c.json({ message: "Wrong password" });
@@ -94,6 +94,8 @@ user.post("/signin", async (c) => {
     c.status(401);
     return c.json({ message: "Could'nt login" });
   }
+  c.status(401);
+  return c.json({ message: "Could'nt login" });
 });
 
 export default user;
