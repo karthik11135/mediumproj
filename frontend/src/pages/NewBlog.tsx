@@ -4,8 +4,8 @@ import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../components/Loading";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { isLoggedAtom, loggedUserAtom } from "../atoms";
+import { useRecoilValue } from "recoil";
+import { isLoggedAtom } from "../atoms";
 
 export const NewBlog = () => {
   const isLogged = useRecoilValue(isLoggedAtom);
@@ -24,6 +24,7 @@ export const NewBlog = () => {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
     });
+    console.log(res.data)
     setLoading(false);
     navigate("/blogs");
   };

@@ -1,5 +1,3 @@
-import React from "react";
-import { StarIcon } from "../ui/Icons";
 import { Link } from "react-router-dom";
 
 interface BlogCardProps {

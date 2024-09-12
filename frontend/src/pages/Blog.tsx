@@ -1,5 +1,4 @@
-import React from "react";
-import { Appbar } from "../components/Appbar";
+
 import { Avatar } from "../components/BlogCard";
 import { useBlog } from "../hooks";
 import { useParams } from "react-router-dom";

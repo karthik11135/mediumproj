@@ -1,5 +1,4 @@
-import React from "react";
-import { signupType } from "@karthikrk11135/common-app";
+
 import { Quote } from "../components/Quote";
 import { AuthForm } from "../components/AuthForm";
 

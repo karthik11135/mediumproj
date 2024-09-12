@@ -1,6 +1,6 @@
-import React from "react";
+
 import { BlogCard } from "../components/BlogCard";
-import { Appbar } from "../components/Appbar";
+
 import { Loading } from "../components/Loading";
 import { useBlogs } from "../hooks";
 import { useRecoilValue } from "recoil";
